@@ -66,9 +66,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderTransactions() {
         const transactionsList = document.getElementById('transactions-list');
         transactionsList.innerHTML = '';
-        const recentTransactions = transactions.slice(-10); // Mostra apenas as 10 últimas transações
+        const recentTransactions = transactions.slice(-10).reverse(); // Mostra apenas as 10 últimas transações, invertidas (mais recente primeiro)
         recentTransactions.forEach((t, index) => {
-            const realIndex = transactions.length - recentTransactions.length + index; // Índice real no array completo
+            const realIndex = transactions.length - 1 - index; // Índice real no array completo, ajustado para a ordem reversa
             const li = document.createElement('li');
             li.className = t.type;
             li.innerHTML = `
