@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Custo por Km</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Custo por Km Rodado</h1>
+        <form id="calcForm">
+            <label for="precoLitro">Preço do Litro (R$):</label>
+            <input type="number" id="precoLitro" step="0.01" required>
+            
+            <label for="consumo">Consumo Médio (km/litro):</label>
+            <input type="number" id="consumo" step="0.1" required>
+            
+            <button type="submit">Calcular</button>
+        </form>
+        <div id="resultado"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
