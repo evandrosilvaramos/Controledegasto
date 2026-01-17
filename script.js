@@ -66,12 +66,14 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderTransactions() {
         const transactionsList = document.getElementById('transactions-list');
         transactionsList.innerHTML = '';
-        transactions.forEach((t, index) => {
+        const recentTransactions = transactions.slice(-10); // Mostra apenas as 10 últimas transações
+        recentTransactions.forEach((t, index) => {
+            const realIndex = transactions.length - recentTransactions.length + index; // Índice real no array completo
             const li = document.createElement('li');
             li.className = t.type;
             li.innerHTML = `
                 <span>${t.date} - ${t.description} - ${t.type === 'entrada' ? 'Entrada' : 'Saída'} - R$ ${t.amount.toFixed(2)}</span>
-                <button class="edit-btn" data-index="${index}">Editar</button>
+                <button class="edit-btn" data-index="${realIndex}">Editar</button>
             `;
             transactionsList.appendChild(li);
         });
