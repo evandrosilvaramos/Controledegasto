@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Gastos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Controle de Gastos Diários</h1>
+    <div class="container">
+        <div class="form-section">
+            <h2>Adicionar Transação</h2>
+            <form id="transaction-form">
+                <label for="description">Descrição:</label>
+                <input type="text" id="description" required>
+                
+                <label for="amount">Valor (R$):</label>
+                <input type="number" id="amount" step="0.01" required>
+                
+                <label for="type">Tipo:</label>
+                <select id="type" required>
+                    <option value="entrada">Entrada (Ganho)</option>
+                    <option value="saida">Saída (Gasto)</option>
+                </select>
+                
+                <button type="submit" id="add-button">Adicionar</button>
+                <button type="button" id="save-edit-button" style="display: none;">Salvar Edição</button>
+                <button type="button" id="cancel-edit-button" style="display: none;">Cancelar</button>
+            </form>
+        </div>
+        
+        <div class="summary">
+            <h2>Resumo</h2>
+            <p>Total Entradas: R$ <span id="total-entradas">0.00</span></p>
+            <p>Total Saídas: R$ <span id="total-saidas">0.00</span></p>
+            <p>Saldo: R$ <span id="saldo">0.00</span></p>
+            <p>Porcentagem de Lucro: <span id="porcentagem-lucro">0.00</span>%</p>
+            <button id="reset-button">Resetar Dados</button>
+        </div>
+        
+        <div class="chart">
+            <h2>Gráfico de Lucro</h2>
+            <canvas id="profitChart"></canvas>
+        </div>
+        
+        <div class="transactions">
+            <h2>Transações do Dia</h2>
+            <ul id="transactions-list">
+            </ul>
+        </div>
+        
+        <div class="annual-report">
+            <h2>Relatório Anual de Saldos</h2>
+            <table id="annual-table">
+                <thead>
+                    <tr>
+                        <th>Mês</th>
+                        <th>Saldo (R$)</th>
+                    </tr>
+                </thead>
+                <tbody id="annual-body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
