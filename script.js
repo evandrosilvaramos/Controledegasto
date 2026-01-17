@@ -174,6 +174,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    const custoKmLitrosButton = document.getElementById('custo-km-litros-button');
+    custoKmLitrosButton.addEventListener('click', function() {
+        window.location.href = 'Custo-km-litros/index.html';
+    });
+
     updateSummary();
     renderTransactions();
     updateAnnualReport();

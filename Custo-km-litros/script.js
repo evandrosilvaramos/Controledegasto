@@ -16,3 +16,7 @@ document.getElementById('calcForm').addEventListener('submit', function(e) {
     
     document.getElementById('resultado').innerHTML = resultado;
 });
+
+document.getElementById('back-button').addEventListener('click', function() {
+    window.location.href = '../index.html';
+});
